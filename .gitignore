@@ -1,0 +1,88 @@
+# ─── Generated Data ───────────────────────────────────────────────────────────
+# Downloaded price data and all backtest outputs are large and reproducible.
+# Run `python backtest.py` to regenerate.
+data/
+
+# ─── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+.eggs/
+
+# ─── Jupyter ──────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ─── Virtual Environments ─────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+.env
+.env.*
+*.env
+
+# ─── Package Managers & Caches ────────────────────────────────────────────────
+.uv_cache/
+.uv/
+pip-log.txt
+pip-delete-this-directory.txt
+.cache/
+
+# ─── IDE & Editors ────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.ropeproject/
+
+# ─── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ─── Scratch & Experiments ────────────────────────────────────────────────────
+# The research/ scripts are checked in (they document the experiment history),
+# but any ad-hoc scratch files are excluded.
+scratch/
+*.scratch.py
+
+# ─── Streamlit ────────────────────────────────────────────────────────────────
+.streamlit/secrets.toml
+
+# ─── Logs & Profiling ─────────────────────────────────────────────────────────
+*.log
+*.prof
+*.lprof
+
+# ─── Coverage & Testing ───────────────────────────────────────────────────────
+.coverage
+.pytest_cache/
+htmlcov/
+*.cover
+coverage.xml
+
+# ─── Secrets ──────────────────────────────────────────────────────────────────
+*.pem
+*.key
+secrets.json
+credentials.json
+
+# ─── Misc ─────────────────────────────────────────────────────────────────────
+*.bak
+*.tmp
+*.orig

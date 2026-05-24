@@ -1,0 +1,22 @@
+# Core
+pandas>=2.0
+numpy>=1.24
+yfinance>=0.2.30
+
+# Statistics (Phase 2+)
+statsmodels>=0.14
+scipy>=1.11
+
+# Visualization
+plotly>=5.18
+matplotlib>=3.8
+
+# Dashboard (Phase 5)
+streamlit>=1.30
+
+# Notebook
+jupyter>=1.0
+ipykernel>=6.0
+
+# Data storage
+pyarrow>=14.0  # For parquet support
