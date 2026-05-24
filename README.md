@@ -112,6 +112,17 @@ Tested across 7 out-of-sample periods from January 2023 to April 2026, benchmark
 | Win Rate | 52.6% (114 trades) | — |
 | Profitable Periods | 7/7 | — |
 
+**2025–2026 out-of-sample period**
+
+| Metric | Portfolio | Nifty 50 |
+|--------|-----------|----------|
+| Total Return | +21.55% | -0.62% |
+| CAGR | +21.55% | -0.62% |
+| Sharpe Ratio | 1.91 | -0.43 |
+| Max Drawdown | -3.37% | -15.18% |
+| Volatility | 7.23% | 13.26% |
+| Calmar Ratio | 6.40 | -0.04 |
+
 ---
 
 ## Dashboard
