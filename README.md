@@ -156,7 +156,27 @@ NSE does not allow retail investors to carry short equity positions overnight â€
 - The 14 tickers without F&O are mostly smaller names (CUB, IOB, STARCEMENT, PGHH, etc.) that rarely appear in the final pair selection
 - A live implementation would short the future and long the cash equity, introducing basis risk and rollover costs not modelled here
 
-For a version of the strategy that works within the overnight short constraint (long leg only, no futures required), see [`notebooks/05_long_only_constraint.ipynb`](notebooks/05_long_only_constraint.ipynb). This sacrifices market neutrality but shows what is achievable with cash equity alone.
+### Long-Only Constraint Analysis
+
+For a version of the strategy that works within the overnight short constraint (long leg only, no futures required), see [`notebooks/05_long_only_constraint.ipynb`](notebooks/05_long_only_constraint.ipynb). This sacrifices market neutrality but allows trading entirely with cash equity.
+
+The walk-forward backtest was re-run under this constraint (Jan 2023 â€“ Apr 2026), executing only the long leg when the spread diverges. Surprisingly, the long-only strategy shows improved returns and Sharpe ratio compared to the theoretical two-legged strategy, driven by the strong structural uptrend of the Indian stock market during this period:
+
+| Metric | Full Pairs (Theoretical) | Long-Only (NSE Constraint) | Nifty 50 B&H |
+| :--- | :---: | :---: | :---: |
+| Total Return (%) | 42.90% | **44.70%** | 35.10% |
+| CAGR (%) | 11.73% | **12.17%** | 9.81% |
+| Sharpe Ratio | 1.27 | **1.32** | 0.33 |
+| Max Drawdown (%) | -1.35% | -1.82% | -15.77% |
+| Volatility (%) | 4.06% | 4.24% | 12.79% |
+| Calmar Ratio | 8.71 | 6.69 | 0.62 |
+| Correlation with Nifty 50 | 0.012 | 0.227 | 1.000 |
+| Market Beta | 0.004 | 0.075 | 1.000 |
+
+**Key Takeaways:**
+- **Beta Exposure**: By executing only the long leg, the strategy loses pure market neutrality. Correlation with the Nifty 50 rises from 0.012 to 0.227, and market beta rises from 0.004 to 0.075.
+- **Improved Performance**: This small directional exposure acted as a tailwind in the recent bull market, raising the Sharpe ratio from 1.27 to 1.32 and absolute returns to 44.70%.
+- **Risk Control**: Despite losing the short hedge, the maximum drawdown only increases to -1.82% (compared to -1.35% for full pairs and -15.77% for Nifty 50), demonstrating that cointegration-based entry signals and tight stop-loss rules remain highly effective at controlling risk even without a short leg.
 
 ---
 
