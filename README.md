@@ -41,7 +41,8 @@ Key design choices:
 │   ├── 01_data_exploration.ipynb
 │   ├── 02_pair_selection.ipynb
 │   ├── 03_signal_generation.ipynb
-│   └── 04_backtesting.ipynb
+│   ├── 04_backtesting.ipynb
+│   └── 05_long_only_constraint.ipynb   # NSE overnight short restriction analysis
 │
 ├── docs/
 │   └── learn.md                # Technical reference (statistical methods)
@@ -144,6 +145,18 @@ streamlit run dashboard.py
 ## Methodology Reference
 
 See [`docs/learn.md`](docs/learn.md) for a detailed walkthrough of the statistical methods: cointegration vs. correlation, stationarity, ADF testing, OLS hedge ratios, z-score signals, half-life estimation, walk-forward validation, and transaction cost modelling.
+
+---
+
+## Practical Considerations
+
+NSE does not allow retail investors to carry short equity positions overnight — intraday only. This means the market-neutral backtest results above assume access to the **F&O (Futures & Options) segment**, where short positions can be held via stock futures.
+
+- **140 of 154 tickers** in the universe have NSE F&O contracts, so the strategy is largely executable using futures for the short leg
+- The 14 tickers without F&O are mostly smaller names (CUB, IOB, STARCEMENT, PGHH, etc.) that rarely appear in the final pair selection
+- A live implementation would short the future and long the cash equity, introducing basis risk and rollover costs not modelled here
+
+For a version of the strategy that works within the overnight short constraint (long leg only, no futures required), see [`notebooks/05_long_only_constraint.ipynb`](notebooks/05_long_only_constraint.ipynb). This sacrifices market neutrality but shows what is achievable with cash equity alone.
 
 ---
 
